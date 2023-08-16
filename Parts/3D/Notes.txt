@@ -1,0 +1,1 @@
+using VESA mount base only (not cover)
