@@ -49,14 +49,14 @@ Revision 0v1 Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 | **DO NOT configure for operation at input voltage greater than 240V.** If 480V operation is required, see Appendix A; Configuration for operation on 480 V (Untested) |
 | --- |
 
-# 1Before You Begin
+# 1 Before You Begin
 
-## 1.1Material Required
+## 1.1 Material Required
 
 - Interlock hardware for configuration.
 - Suitable micro SD card – minimum of 4 GiB, recommend 16 GiB or greater to provide lots of spare capacity for wear leveling.
 
-## 1.2Required Information
+## 1.2 Required Information
 
 Have the following information at hand:
 
@@ -68,7 +68,7 @@ Have the following information at hand:
 - Phase count (singe or three phase)
 - Load current or horsepower rating
 
-## 1.3Tools/Facilities
+## 1.3 Tools/Facilities
 
 Have access to:
 
@@ -77,15 +77,15 @@ Have access to:
 - Test supply of required voltage
 - DMS Ethernet port on VLAN 400 (the IoT VLAN)
 
-# 2Create and Configure SD card
+# 2 Create and Configure SD card
 
 Copy the latest image on to a micro SD or create one according to the instructions in the latest version of RFID\_LO\_SD\_IMAGE\_Setup
 
-## 2.1SD configuration
+## 2.1 SD configuration
 
 You can do this from the autologin console on the Pi or by SSH to the default image DNS of Interlock-Test-1 with the password dmsDMS. If you use SSH you will need a network connection on VLAN 400.
 
-### 2.1.1Resize Partition
+### 2.1.1 Resize Partition
 
 Run the Raspberry Pi configuration utility and resize the partition to fill the card.
 
@@ -109,7 +109,7 @@ file to change the localhost home alias entry (probably the last in the file) fr
 
 To reflect the new hostname.
 
-#### 2.1.2.1Hostname Selection
+#### 2.1.2.1 Hostname Selection
 
 Three elements separated by hyphens, all caps.
 
@@ -123,11 +123,11 @@ COMMITTEE-MACHINE-INDEX
 
 So the woodshop's second SawStop would be WOOD-SAWSTOP-2
 
-## 2.2Password Setting
+## 2.2 Password Setting
 
 Set new passwords for the Keymaster User account in accordance with DMS password selection standards and enter it in Bitwarden in the IoT folder for the hostname.
 
-## 2.3Keymaster Configuration
+## 2.3 Keymaster Configuration
 
 Select AD name for authorization. Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
 
@@ -143,22 +143,21 @@ groups\_allowed = Automotive 102 (Lift Training)
 
 and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.
 
-## 2.4Network Configuration
+## 2.4 Network Configuration
 
 It is probably best to leave this to the very last as interlocks at DMS use fixed IPs on a dedicated VLAN subnet. The VLAN is 400 and is determined by switch port configuration. The subnet is the RFC1918 non-routable, private range 10.0.0.0
 
-# 1
-. The IoT IP range is not routable by the DMS user subnet.
+The IoT IP range is not routable by the DMS user subnet.
 
 Copy dhcpcd.conf from the aux-files/Netowrk folder to /etc/dhcpcd.conf and edit the static IP address
 
-## 2.5Labelling
+## 2.5 Labelling
 
 - Apply High Voltage Caution label if not present
 - Apply hostname label to cabinet (best to use top of cabinet so label is visible with door open
 - Apply hostname label to baseplate
 
-# 3Installation
+# 3 Installation
 
 - Remove ground screw and four mounting nuts on baseplate (need pic) and remove the baseplate assembly.
 - Select and remove cable entry and exit knockouts or cut holes for this purpose.
@@ -169,27 +168,27 @@ Copy dhcpcd.conf from the aux-files/Netowrk folder to /etc/dhcpcd.conf and edit 
 - Place all corner nuts finger tight, then tighten them completely
 - Tighten the ground screw
 
-## 3.1Wiring
+## 3.1 Wiring
 
-### 3.1.1Single Phase Application
+### 3.1.1 Single Phase Application
 
 In single phase applications the neutral should use the contactor middle terminals. The line (hot) should pass through the current sensor.
 
-### 3.1.2Three Phase Application
+### 3.1.2 Three Phase Application
 
-# 4Test and Calibration
+# 4 Test and Calibration
 
-## 4.1Current Sensor adjustment
+## 4.1 Current Sensor adjustment
 
 Turn the machine in it's unloaded running state (with motor on, but unloaded.) Adjust current switch so light just comes on. Turn motor off and verify sensor light turns off.
 
-# 5Maintenance
+# 5 Maintenance
 
 Log checks
 
 # Appendix A
 
-# 6Configuration For Operation On 480 V (Untested)
+# 6 Configuration For Operation On 480 V (Untested)
 
 **NOTE THAT THIS CONFIGURAITON IS UNTESTED**
 
