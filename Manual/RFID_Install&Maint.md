@@ -4,15 +4,7 @@ Revision 0v1 Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 | --- | --- | --- | --- |
 | 15 JUL 23 | 0v1 | Initial Incomplete Draft | OZINDFW |
 |
- |
- |
- |
- |
-|
- |
- |
- |
- |
+
 
 # Table of Contents
 
@@ -62,7 +54,7 @@ Revision 0v1 Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 ## 1.1Material Required
 
 - Interlock hardware for configuration.
-- Suitable micro SD card – minimum of 4 GiB, recommend 16 GiB or greater to provide lots of spare capacity for wear leveling.
+- Suitable micro SD card â€“ minimum of 4 GiB, recommend 16 GiB or greater to provide lots of spare capacity for wear leveling.
 
 ## 1.2Required Information
 
@@ -125,9 +117,9 @@ COMMITTEE-MACHINE-INDEX
 
 **COMMITTEE** name - Wood, Machine, Metal, etc
 
-**MACHINE** name – eg SAWSTOP for SawStop table saw, or COLCHESTER for Colchester lathe
+**MACHINE** name â€“ eg SAWSTOP for SawStop table saw, or COLCHESTER for Colchester lathe
 
-**INDEX** – a sequential number starting with one and continuing with upper case letters if needed
+**INDEX** â€“ a sequential number starting with one and continuing with upper case letters if needed
 
 So the woodshop's second SawStop would be WOOD-SAWSTOP-2
 
@@ -158,19 +150,7 @@ It is probably best to leave this to the very last as interlocks at DMS use fixe
 # 1
 . The IoT IP range is not routable by the DMS user subnet.
 
-Use the Network Manager command line interface to set the IP address.
-
-Need to modify network manager settings, so run:
-
-sudo nmcli con mod "Wired connection 1" ipv4.addresses "10.0.16.xx/21"
-
-Where xx is the last octet of the IP address.
-
-If you need to redo settings run:
-
-sudo nmcli con mod "Wired connection 1" ipv4.addresses "10.0.16.10/21" ipv4.gateway "10.0.16.1" ipv4.dns "192.168.200.27" ipv4.method "manual"
-
-Another option is to edit the settings file in /etc/NetworkManager/system-connections/ and manually change the IP address. While editing it would be a good idea to verify the other settings.
+Copy dhcpcd.conf from the aux-files/Netowrk folder to /etc/dhcpcd.conf and edit the static IP address
 
 ## 2.5Labelling
 
