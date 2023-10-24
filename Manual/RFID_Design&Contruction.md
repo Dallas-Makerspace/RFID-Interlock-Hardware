@@ -159,32 +159,9 @@ Regardless, we want to assign card readers device names RFIDx where x is 0-9
 
 We will accomplish this with a udev rules file.
 
-#
-
-# udev rules for RFID tag readers to alias to RFID\_Reader\_0 and RFID\_Reader\_1
-
-#
-
-KERNEL=="event\*", SUBSYSTEM=="input", ATTRS{name}=="Sycreader\*USB Reader", ATTRS{phys}=="\*.usb-1.3\*", SYMLINK="RFID\_Reader\_0"
-
-#
-
-# USB 1.4 for Pi 4 compatibility
-
-#
-
-KERNEL=="event\*", SUBSYSTEM=="input", ATTRS{name}=="Sycreader\*USB Reader", ATTRS{phys}=="\*.usb-1.4\*", SYMLINK="RFID\_Reader\_1"
-
-#
-
-KERNEL=="event\*", SUBSYSTEM=="input", ATTRS{name}=="Sycreader\*USB Reader", ATTRS{phys}=="\*.usb-1.5\*", SYMLINK="RFID\_Reader\_1"
-
-| **DO NOT copy and paste the UDEV rules text directly from this document.**** Word inserts non-printing characters that are not reliably stripped.** |
-| --- |
-
 The file must be in the /etc/udev/rules.d directory and should be named "10-local.rules" ![](RackMultipart20231024-1-vs8l2p_html_39994beed71d8d95.gif)
 
-This copy includes Pi 4 rules. Later versions are maintained on the DMS GitHub.
+The rules file is maintained on the DMS KeyMaster GitHub.
 
 ## 6.1[How to bind USB device under a static name?](https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name)
 
