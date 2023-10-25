@@ -51,7 +51,7 @@ One solution was hoped to be to control reader identification by physical port. 
 
 **Table 1 Raspberry Pi Revision Codes**
 
-| **Model and Pi Revision** | **256MB** | **Hardware Revision Code**** from cpuinfo** |
+| **Model and Pi Revision** | **RAM** | **Hardware Revision Code**** from cpuinfo** |
 | --- | --- | --- |
 | Model B Revision 1.0 | 256MB | 0002 |
 | Model B Revision 1.0 + ECN0001 (no fuses, D14 removed) | 256MB | 0003 |
