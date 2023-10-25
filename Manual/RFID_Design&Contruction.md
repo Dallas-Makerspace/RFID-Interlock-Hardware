@@ -1,69 +1,27 @@
-Revision 0v1 Dallas Makerspace RFID Lockout Design and Construction
+Dallas Makerspace RFID Lockout Design and Construction
 
-| Date | Revision | Description | Author |
-| --- | --- | --- | --- |
-| 15 JUL 23 | 0v1 | Initial Incomplete Draft | OZINDFW |
-|
- |
- |
- |
- |
-|
- |
- |
- |
- |
+# 1 Design
 
-# Contents
-
-[1 Design 1](#_Toc145431314)
-
-[2 Fabrication and Construction 1](#_Toc145431315)
-
-[2.1 Waterjet Cutting Connector Hole 1](#_Toc145431316)
-
-[3 Versions 1](#_Toc145431317)
-
-[4 Issues 1](#_Toc145431318)
-
-[4.1 Ethernet connection 1](#_Toc145431319)
-
-[5 RFID Reader Identification 2](#_Toc145431320)
-
-[6 Auto restart script 3](#_Toc145431321)
-
-[7 Alternate AD lookups 3](#_Toc145431322)
-
-[8 RFID Reader I/O Assignment 4](#_Toc145431323)
-
-[8.1 How to bind USB device under a static name? 5](#_Toc145431324)
-
-[8.1.1 Writing udev rules 5](#_Toc145431325)
-
-[9 Dust Collector Blast Gate Controls 5](#_Toc145431326)
-
-# 1Design
-
-## 1.1Avoided custom board design.
+## 1.1 Avoided custom board design.
 
 This is a no-production-volume design that will built in small quantites over years. Custom board designs were avoided because:
 
 - They will become obsolete and unsupportable rapidly if extreme care is not taken in component selection, and likely even if that care is taken.
 - The size and cost advantage is not great in the small number of large machine applications we have.
 
-## 1.2Readily Available Commodity Parts
+## 1.2 Readily Available Commodity Parts
 
 The industrial parts used in this design and more expensive that their board level counterparts, but have longer market lives and available from several sources.
 
-# 2Fabrication and Construction
+# 2 Fabrication and Construction
 
-## 2.1Waterjet Cutting Connector Hole
+## 2.1 Waterjet Cutting Connector Hole
 
 The inside of the box needs to protected from the jet. Even though the jet is scattered, it still contains enough energy to damage the internal powder coat. The rear and sidewall opposite the hinge need to be masked or protected in some way.
 
 We've not tested an approach, but duct tape or an acrylic shield to protect the interior finish may work.
 
-# 3Versions
+# 3 Versions
 
 At this time there are _roughly_ three versions of Interlock. These are (informally) known as Legacy A, Legacy B, and DIN rail based designs.
 
@@ -77,17 +35,17 @@ The schematics of the two versions are similar, but not identical. The two legac
 
 The DIN rail versions are based on a DIN rail mounted on 9.75" square plate.
 
-# 4Issues
+# 4 Issues
 
-## 4.1Ethernet connection
+## 4.1 Ethernet connection
 
 Some Raspberry Pi Ethernet interfaces will not connect to some switches. This happens infrequently and can be resolved by connecting to a different brand or model switch. The cause of this issue has not been researched.
 
-# 5RFID Reader Identification
+# 5 RFID Reader Identification
 
-There are challenges identifying the RFID reader as the identification reported can vary a lot. Most readers do not seem to include a unique serial number. Future versions may use more than one reader to control multiple clients.
+There are challenges identifying the RFID reader as the identification reported can vary a lot. Most readers do not seem to include a unique serial number. My hope was that future versions could use more than one reader to control multiple clients, unfortunately connecting multiple identical readers to a Raspberry PI only shows one reader. More study is needed. 
 
-One solution is to control reader identification by physical port. This is practical utilizing UDEV rules, but depends on underlying hardware. Raspberry Pi hardware versions may be determined by reading /proc/cpuinfo | Revision
+One solution was hoped to be to control reader identification by physical port. This is practical utilizing UDEV rules, but depends on underlying hardware. Raspberry Pi hardware versions may be determined by reading /proc/cpuinfo | Revision
 
 [https://ozzmaker.com/check-raspberry-software-hardware-version-command-line/](https://ozzmaker.com/check-raspberry-software-hardware-version-command-line/)
 
@@ -139,7 +97,7 @@ you get a screed of output but the salient bits are
 
 KERNEL="video0", SUBSYSTEM="video4linux" and KERNELS="1:1.2.4:1.0".
 
-# 6RFID Reader I/O Assignment
+# 6 RFID Reader I/O Assignment
 
 We need to reliably locate the USB RFID reader. The commodity USB RFID readers are mostly based on the Sycreader chipset by RFID Technology Co., Ltd. The problem is that most are not serialized, and offer many different ID strings.
 
@@ -163,11 +121,11 @@ The file must be in the /etc/udev/rules.d directory and should be named "10-loca
 
 The rules file is maintained on the DMS KeyMaster GitHub.
 
-## 6.1[How to bind USB device under a static name?](https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name)
+## 6.1 [How to bind USB device under a static name?](https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name)
 
 https://unix.stackexchange.com/questions/66901/how-to-bind-usb-device-under-a-static-name
 
-### 6.1.1Writing udev rules
+### 6.1.1 Writing udev rules
 
 [http://www.reactivated.net/writing\_udev\_rules.html](http://www.reactivated.net/writing_udev_rules.html)
 
@@ -177,7 +135,7 @@ finding card reader mounts
 
 ls /dev/input/by-path
 
-# 7Auto restart scripts
+# 7 Auto restart scripts
 
 A bug in early code versions caused reads of unauthorized tags to crash the software. An expedient work around was used in the form of a bash script that checked for the presence of the process every second. If the process was not active, it would restart KeyMaster. While this is no longer necessary, it's a useful tool in the event of emergent problems like power blips. The original script did not do useful logging, all that happened was that the restart of keymaster generated a private local log. We are in the process of converting all logging to syslog.
 
@@ -199,7 +157,7 @@ There are several options available, including:
 
 See man 1 logger for more information on the tool.
 
-# 8Alternate AD lookups
+# 8 Alternate AD lookups
 
 Joshua Freedman wrote a new/much simpler AD lookup
 
@@ -254,7 +212,7 @@ Content-Type: application/json
 
 breakCache is optional, and likely should always be left the default false. It is only being left in for debugging purposes. Which will return 200 OK or 417 Expectation failed (when an invalid ldap precondition fails). A 200 OK Body will have a result like below:
 
-# 9Dust Collector Blast Gate Controls
+# 9 Dust Collector Blast Gate Controls
 
 The blast gates look pretty simple overall, the basically turn into a contact closure. This is true either literally, as in the case of the iVac consumer units, or as a switched AC voltage in the case of more industrial units.
 
