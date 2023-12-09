@@ -129,7 +129,18 @@ Set new passwords for the Keymaster User account in accordance with DMS password
 
 ## 2.3 Keymaster Configuration
 
-Select AD name for authorization. Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
+Select AD name for authorization. 
+
+Edit the [ADCommonAPIAuth] section of /home/KeyMaster/KeyMaster.ini
+
+[ADCommonAPIAuth]
+
+url = http://192.168.203.30:8083/badgeGroupMembership
+group =
+
+(where the authorization group follows the equal sign and is not in quotes)
+
+~~Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
 
 [ADApiAuth]
 
@@ -141,7 +152,7 @@ groups\_denied =
 
 groups\_allowed = Automotive 102 (Lift Training)
 
-and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.
+and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.~~
 
 ## 2.4 Network Configuration
 
