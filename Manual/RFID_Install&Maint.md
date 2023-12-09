@@ -140,7 +140,7 @@ group =
 
 (where the authorization group follows the equal sign and is not in quotes)
 
-~~~Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
+<del>Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
 
 [ADApiAuth]
 
@@ -152,7 +152,7 @@ groups\_denied =
 
 groups\_allowed = Automotive 102 (Lift Training)
 
-and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.~~~
+and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.</del>
 
 ## 2.4 Network Configuration
 
