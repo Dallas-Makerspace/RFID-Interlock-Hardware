@@ -136,23 +136,24 @@ Edit the [ADCommonAPIAuth] section of /home/KeyMaster/KeyMaster.ini
 [ADCommonAPIAuth]
 
 url = http://192.168.203.30:8083/badgeGroupMembership
+
 group =
 
 (where the authorization group follows the equal sign and is not in quotes)
 
-<del>Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini
+~~Edit the [ADApiAuth] section of /home/KeyMaster/KeyMaster.ini~~
 
-[ADApiAuth]
+~~[ADApiAuth]~~
 
-url = http://192.168.200.32:8080/api/v1/lookupByRfid
+~~url = http://192.168.200.32:8080/api/v1/lookupByRfid~~
 
-# Groups denied are checked first, then groups allowed are checked
+~~# Groups denied are checked first, then groups allowed are checked~~
 
-groups\_denied =
+~~groups\_denied =~~
 
-groups\_allowed = Automotive 102 (Lift Training)
+~~groups\_allowed = Automotive 102 (Lift Training)~~
 
-and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.</del>
+~~and replace the groups\_allowed entry with the AD for the system. groups\_denied should remain blank.~~
 
 ## 2.4 Network Configuration
 
