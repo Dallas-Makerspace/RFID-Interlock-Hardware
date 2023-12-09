@@ -164,7 +164,14 @@ _sudo apt-get install python3-pip_
 
 _sudo pip install evdev_
 
-### 1.8.1 Piface DigitalIO 2 Support
+### 1.8.1 Configure Pi GPIO Support
+
+In order to use the GPIO ports your user must be a member of the gpio group. 
+The pi user is a member by default, other users need to be added manually. To add a user:
+
+  sudo usermod -a -G gpio <username>
+
+### 1.8.2 Piface DigitalIO 2 Support
 
 PiFace is _ **only** _ used on legacy systems as the PiFace DigitalIO 2 cards are no longer available.
 
