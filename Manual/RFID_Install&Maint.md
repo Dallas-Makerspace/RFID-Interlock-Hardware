@@ -1,50 +1,5 @@
-Revision 0v1 Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
-
-| Date | Revision | Description | Author |
-| --- | --- | --- | --- |
-| 15 JUL 23 | 0v1 | Initial Incomplete Draft | OZINDFW |
+Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 |
-
-
-# Table of Contents
-
-[1 Before You Begin 1](#_Toc146465683)
-
-[1.1 Required Information 1](#_Toc146465684)
-
-[1.2 Tools/Facilities 1](#_Toc146465685)
-
-[2 Create SD card 1](#_Toc146465686)
-
-[2.1 SD configuration 1](#_Toc146465687)
-
-[2.1.1 Set hostname 1](#_Toc146465688)
-
-[2.2 Password Setting 2](#_Toc146465689)
-
-[2.3 Keymaster Configuration 2](#_Toc146465690)
-
-[2.4 Network Configuration 2](#_Toc146465691)
-
-[2.5 Labelling 2](#_Toc146465692)
-
-[3 Installation 2](#_Toc146465693)
-
-[3.1 Wiring 2](#_Toc146465694)
-
-[3.1.1 Single Phase Application 2](#_Toc146465695)
-
-[3.1.2 Three Phase Application 3](#_Toc146465696)
-
-[4 Test and Calibration 3](#_Toc146465697)
-
-[4.1 Current Sensor adjustment 3](#_Toc146465698)
-
-[5 Maintenance 3](#_Toc146465699)
-
-[Appendix A 4](#_Toc146465700)
-
-[6 Configuration For Operation On 480 V (Untested) 4](#_Toc146465701)
 
 | **DO NOT configure for operation at input voltage greater than 240V.** If 480V operation is required, see Appendix A; Configuration for operation on 480 V (Untested) |
 | --- |
