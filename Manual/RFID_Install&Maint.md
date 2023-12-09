@@ -112,7 +112,7 @@ group =
 
 ## 2.4 Network Configuration
 
-It is probably best to leave this to the very last as interlocks at DMS use fixed IPs on a dedicated VLAN subnet. The VLAN is 400 and is determined by switch port configuration. The subnet is the RFC1918 non-routable, private range 10.0.0.0
+It is probably best to leave this to the very last as interlocks at DMS use fixed IPs on a dedicated VLAN subnet. The VLAN is 400 and is determined by switch port configuration. The subnet is the RFC1918 non-routable, private range 10.0.0.0 0 - 10.255.255.255 (10/8 prefix)
 
 The IoT IP range is not routable by the DMS user subnet.
 
@@ -160,7 +160,3 @@ Log checks
 **NOTE THAT THIS CONFIGURAITON IS UNTESTED**
 
 The low voltage power supply input is rated for a maximum input operating voltage of 240 V. It should be possible to use the transformer input as an autoformer. Connect the power supply input between the common and 208V tap. Connect the 480 V input between the common and 480V tap.
-
-[1](#sdfootnote1anc) 10.0.0.0 - 10.255.255.255 (10/8 prefix)
-
-RackMultipart20231024-1-upk06t.docx Page 8 of 8[Publish Date]
