@@ -10,6 +10,8 @@ Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 
 - Interlock hardware for configuration.
 - Suitable micro SD card – minimum of 4 GiB, recommend 16 GiB or greater to provide lots of spare capacity for wear leveling.
+- Box mounting material (wall anchors, etc.)
+- Double sided mounting tape for reader installation.
 
 ## 1.2 Required Information
 
@@ -31,6 +33,9 @@ Have access to:
 - Multimeter
 - Test supply of required voltage
 - DMS Ethernet port on VLAN 400 (the IoT VLAN)
+- Very small screwdrivers required for current switch adjustment and DIN connection block screws
+- 1/4" flat blade screwdriver and #1 Phillips screwdriver
+- 3/8" socket or nutdriver for installing the baseplate retaining nuts.
 
 # 2 Create and Configure SD card
 
