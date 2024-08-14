@@ -197,13 +197,13 @@ Copy line(s) from aux\_files\bashrc-addendum.bash into the end of .bashrc
 
 Copy file aux\_files\KeyMaster\_Start.sh to \home\keymaster and make executable with
 
-sudo chmod +x KeyMaster\_Start.sh
+_sudo chmod +x KeyMaster\_Start.sh_
 
 ## 1.12 Network Configuration
 
 Need to modify network manager settings, so edit:
 
-/etc/dhcpcd.conf
+_/etc/dhcpcd.conf_
 
 And set the appropriate static address
 
@@ -213,7 +213,7 @@ Note: Using Network Manager leads to host of issues that make copying the card i
 
 If the applicaiton uses WiFi use the command:
 
-sudo nmtui 
+_sudo nmtui_
 
 to configure WiFi and IP settings with the appropriate static address. Some versions of Raspberry Pi OS need options disabled to maintain a reliable connection. If you observe frequent data drops try:
 
@@ -221,7 +221,7 @@ Create a file called /etc/modprode.d/brcmfmac.conf
 
  with the following content:
 
-options brcmfmac roamoff=1 feature_disable=0x82000
+_options brcmfmac roamoff=1 feature_disable=0x82000_
 
 Reference: https://forums.raspberrypi.com/viewtopic.php?t=372254
 
