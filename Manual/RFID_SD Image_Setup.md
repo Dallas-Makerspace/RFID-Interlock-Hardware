@@ -208,23 +208,22 @@ Need to modify network manager settings, so edit:
 And set the appropriate static address
 
 Note: Using Network Manager leads to host of issues that make copying the card image a mess. Network Manager includes the ethernet interface mac address in a GUID used a number of places, not all of which appear to be documented.
+
 ### 1.12.1 WiFi Configuration
 
 If the applicaiton uses WiFi use the command:
 
 sudo nmtui 
 
-to configure WiFi and IP settings with the appropriate static address
-
-some versions of Raspberry Pi OS need options disabled to maintain a realiable connection. If you observe frequent data drops try:
-
-This seems to fix it.  I'm starting an our pong test to confirm. 
+to configure WiFi and IP settings with the appropriate static address. Some versions of Raspberry Pi OS need options disabled to maintain a reliable connection. If you observe frequent data drops try:
 
 Create a file called /etc/modprode.d/brcmfmac.conf
 
  with the following content:
 
 options brcmfmac roamoff=1 feature_disable=0x82000
+
+Reference: https://forums.raspberrypi.com/viewtopic.php?t=372254
 
 ## 1.13 Read Only Card Configuration
 
