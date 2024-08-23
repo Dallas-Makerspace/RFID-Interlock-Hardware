@@ -225,6 +225,18 @@ _options brcmfmac roamoff=1 feature_disable=0x82000_
 
 Reference: https://forums.raspberrypi.com/viewtopic.php?t=372254
 
+### 1.12.2  SSHD Configuration
+
+The OpenSSH daemon has added QoS metric requirements that the Pi Zero W Wifi can't meet. This results in dropped SSH/SFTP sessions, often before login completes. Edit 
+
+_/etc/ssh/sshd_config_
+
+and add the line
+
+_IPQoS 0x00_
+
+Refernce: https://raspberrypi.stackexchange.com/questions/143142/has-anyone-solved-raspberry-pi-zero-w-ssh-client-loop-send-disconnect-broken
+
 ## 1.13 Read Only Card Configuration
 
 While we have examples of systems running cards with local logging to SD for years, Flash wearout is a well-documented issue. The best option seems to be to log to local RAMDISK and network logger.
@@ -232,5 +244,3 @@ While we have examples of systems running cards with local logging to SD for yea
 Add instructions here.
 
 [1](#sdfootnote1anc) While cards smaller than 8 GiB may fit an image, smaller cards don't really leave enough working room for flash wear leveling.
-
-RackMultipart20231024-1-8v52wr.docx Page 8 of 8
