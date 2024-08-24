@@ -92,7 +92,7 @@ sudo apt-get purge avahi-daemon
 
 ## 1.7 Install and Configure NTP
 
-[time details are changing.  The refernced time server is gone, and NTP may no longer nbe essential.]
+[time details are changing.  The referenced time server is gone, and NTP may no longer be essential as systemd timesyncd appears to be sufficient.]
 
 We need ntp for accurate time in logs. Ntpdate is a useful command for managing and viewing ntp status.
 
