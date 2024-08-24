@@ -169,7 +169,7 @@ _sudo pip install evdev_
 In order to use the GPIO ports your user must be a member of the gpio group. 
 The pi user is a member by default, other users need to be added manually. To add a user:
 
-  sudo usermod -a -G gpio <username>
+  sudo usermod -a -G gpio keymaster
 
 ### 1.8.2 Piface DigitalIO 2 Support
 
