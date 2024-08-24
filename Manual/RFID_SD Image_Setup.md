@@ -164,6 +164,10 @@ _sudo apt-get install python3-pip_
 
 _sudo pip install evdev_
 
+later versions of Rapberry Pi OS 'externally manage' Pi libraries and require anything not upported by the OS to be installed in a virtual environment.  evdv *IS* supported so can be installed with APT:
+
+_sudo apt install python3-evdev_
+
 ### 1.8.1 Configure Pi GPIO Support
 
 In order to use the GPIO ports your user must be a member of the gpio group. 
