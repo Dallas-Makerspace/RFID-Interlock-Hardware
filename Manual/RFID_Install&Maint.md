@@ -6,6 +6,8 @@ Dallas Makerspace Legacy RFID Lockout Installation and Maintenance
 
 # 1 Before You Begin
 
+Note that the RFID Interlocks as currently built and tested have not been modified for power in/out ports, any indicators, or an Emergency Stop switch as these are installation dependent.  You will need to survey and plan the installation so that any required chassis modifications can be made prior to installation and commissioning. These instructions do not cover these modifications nor do they discuss mounting the interlock chassis/box.
+
 ## 1.1 Material Required
 
 - Interlock hardware for configuration.
