@@ -1,0 +1,7 @@
+There may be power save issues that cause the wifi to dissappear (device and all)
+
+See https://raspberrypi.stackexchange.com/questions/138688/wifi-disconnects-after-6-hours-on-raspian-11-pi-zero-2w
+
+and   https://raspberrypi.stackexchange.com/questions/96606/make-iw-wlan0-set-power-save-off-permanent
+
+So far I haven't been able to successfully disable it.
