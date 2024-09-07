@@ -4,4 +4,30 @@ See https://raspberrypi.stackexchange.com/questions/138688/wifi-disconnects-afte
 
 and   https://raspberrypi.stackexchange.com/questions/96606/make-iw-wlan0-set-power-save-off-permanent
 
-So far I haven't been able to successfully disable it.
+So far I haven't been able to successfully disable it. Except that I have.  It's not clear if 
+
+sudo systemctl disable wifi_powersave@on.service
+sudo systemctl enable wifi_powersave@off.service
+
+did this after
+
+One way to accomplish this is to build a systemd unit file which can execute the necessary command at boot. I will give you here a bit more comfortable example for switching off or on power_save. Create a Unit file with:
+
+rpi ~$ sudo systemctl --full --force edit wifi_powersave@.service
+
+In the empty editor insert these statements, save them and quit the editor:
+
+[Unit]
+Description=Set WiFi power save %i
+After=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/iw dev wlan0 set power_save %i
+
+[Install]
+WantedBy=sys-subsystem-net-devices-wlan0.device
+
+
+editing /etc/rc.local did not seem to work on boot up
