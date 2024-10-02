@@ -164,6 +164,6 @@ Log checks
 
 # 6 Configuration For Operation On 480 V (Untested)
 
-**NOTE THAT THIS CONFIGURAITON IS UNTESTED**
+**NOTE THAT THIS CONFIGURITION IS UNTESTED AND ONLY APPLIES TO LEGACY STYLE INTERLOCKS**
 
 The low voltage power supply input is rated for a maximum input operating voltage of 240 V. It should be possible to use the transformer input as an autoformer. Connect the power supply input between the common and 208V tap. Connect the 480 V input between the common and 480V tap.
