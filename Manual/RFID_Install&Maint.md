@@ -24,7 +24,7 @@ Have the following information at hand:
 - The Active Directory security group that controls the target device (these are continuously added to and changing, but one example is "Automotive 102 (Lift Training)" for the Automotive Committee car lift.
 - The password for the device. Generating the password with and storing it in the DMS Bitwarden IoT folder before using it would be a good idea.
 - Required operating voltage
-- Phase count (singe or three phase)
+- Phase count (single or three phase)
 - Load current or horsepower rating
 
 ## 1.3 Tools/Facilities
