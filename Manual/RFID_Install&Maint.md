@@ -123,7 +123,7 @@ It is probably best to leave this to the very last as interlocks at DMS use fixe
 
 The IoT IP range is not routable by the DMS user subnet.
 
-~~~Copy dhcpcd.conf from the aux-files/Network folder to /etc/dhcpcd.conf and edit the static IP address~~~
+~~Copy dhcpcd.conf from the aux-files/Network folder to /etc/dhcpcd.conf and edit the static IP address~~
 
 Use Network Manager to configure the netowrk interface:
 
