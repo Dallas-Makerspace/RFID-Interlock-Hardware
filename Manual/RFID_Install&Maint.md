@@ -160,14 +160,22 @@ In single phase applications the neutral should use the contactor middle termina
 
 Turn the machine in it's unloaded running state (with motor on, but unloaded.) Adjust current switch so light just comes on. Turn motor off and verify sensor light turns off.
 
-# 5 Maintenance
+# 5 Commissioning
+- Create and initially populate controlling AD entry (if not already done - need at least one entry for testing.)
+- Edit keymaster.ini with new AD (if not already done.)
+- Update Password from default and generate Bitwarden entry for interlock.
+- Delete existing logs (keymaster and console) to get rid of leagacy image and testing entries
+- Reboot and check function.
+
+# 6 Maintenance
 
 Log checks
 
 # Appendix A
 
-# 6 Configuration For Operation On 480 V (Untested)
+# 7 Configuration For Operation On 480 V (Untested)
 
 **NOTE THAT THIS CONFIGURITION IS UNTESTED AND ONLY APPLIES TO LEGACY STYLE INTERLOCKS**
 
 The low voltage power supply input is rated for a maximum input operating voltage of 240 V. It should be possible to use the transformer input as an autoformer. Connect the power supply input between the common and 208V tap. Connect the 480 V input between the common and 480V tap.
+
