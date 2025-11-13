@@ -155,7 +155,7 @@ _sudo nmtui_
 
 to configure WiFi and IP settings with the appropriate static address. Some versions of Raspberry Pi OS need options disabled to maintain a reliable connection. If you observe frequent data drops try:
 
-Create a file called /etc/modprode.d/brcmfmac.conf
+Create a file called /etc/modprobe.d/brcmfmac.conf
 
  with the following content:
 
@@ -182,4 +182,5 @@ While we have examples of systems running cards with local logging to SD for yea
 Add instructions here.
 
 [1](#sdfootnote1anc) While cards smaller than 8 GiB may fit an image, smaller cards don't really leave enough working room for flash wear leveling.
+
 
