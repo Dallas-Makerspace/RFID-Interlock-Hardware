@@ -34,7 +34,47 @@ The correct 'official' site is:
 
 [https://sourceforge.net/projects/win32diskimager/files/latest/download](https://sourceforge.net/projects/win32diskimager/files/latest/download)
 
-## 1.4 Raspberry Pi OS Configuration
+## 1.4 Network Configuration
+
+Need to modify network manager settings, so edit:
+
+_/etc/dhcpcd.conf_
+
+And set the appropriate static address
+
+Note: Using Network Manager leads to host of issues that make copying the card image a mess. Network Manager includes the ethernet interface mac address in a GUID used a number of places, not all of which appear to be documented.
+
+### 1.4.1 WiFi Configuration
+
+If the applicaiton uses WiFi use the command:
+
+_sudo nmtui_
+
+to configure WiFi and IP settings with the appropriate static address. Some versions of Raspberry Pi OS need options disabled to maintain a reliable connection. If you observe frequent data drops try:
+
+Create a file called /etc/modprobe.d/brcmfmac.conf
+
+ with the following content:
+
+_options brcmfmac roamoff=1 feature_disable=0x82000_
+
+Reference: https://forums.raspberrypi.com/viewtopic.php?t=372254
+
+### 1.4.2  SSHD Configuration
+
+***Note that this step appears to not be needed and breaks Trixie based versions***
+
+The OpenSSH daemon has added QoS metric requirements that the Pi Zero W Wifi can't meet. This results in dropped SSH/SFTP sessions, often before login completes. Edit 
+
+_/etc/ssh/sshd_config_
+
+and add the line
+
+_IPQoS 0x00_
+
+Refernce: https://raspberrypi.stackexchange.com/questions/143142/has-anyone-solved-raspberry-pi-zero-w-ssh-client-loop-send-disconnect-broken
+
+## 1.5 Raspberry Pi OS Configuration
 
 On first boot you will be asked for a language, username and password. Use:
 
@@ -117,21 +157,21 @@ The pi user is a member by default, other users need to be added manually. To ad
 
 ### 1.7.2 Piface DigitalIO 2 Support
 
-PiFace is _ **only** _ used on legacy systems as the PiFace DigitalIO 2 cards are no longer available.
+*PiFace is _ **only** _ used on legacy systems as the PiFace DigitalIO 2 cards are no longer available.*
 
 _pip install pifacecommon_
 
 _pip install pifacedigitalio_
 
-## 1.8 Install UDEV Rules
-
-Copy the latest version of the UDEV rules file to /etc/udev/rules.d directory. The file should be named "10-local.rules"
-
 ## 1.9 Keymaster Install
 
 Copy Python code and subdirectories into /home/Keymaster
 
-Add KeyMaster.ini file
+Add and configure KeyMaster.ini file
+
+## 1.8 Install UDEV Rules
+
+Copy the latest version of the UDEV rules file to /etc/udev/rules.d directory. The file should be named "10-local.rules"
 
 ## 1.10 Bash Script Edits
 
@@ -143,44 +183,6 @@ Copy file aux\_files\KeyMaster\_Start.sh to \home\keymaster and make executable 
 
 _sudo chmod +x KeyMaster\_Start.sh_
 
-## 1.11 Network Configuration
-
-Need to modify network manager settings, so edit:
-
-_/etc/dhcpcd.conf_
-
-And set the appropriate static address
-
-Note: Using Network Manager leads to host of issues that make copying the card image a mess. Network Manager includes the ethernet interface mac address in a GUID used a number of places, not all of which appear to be documented.
-
-### 1.11.1 WiFi Configuration
-
-If the applicaiton uses WiFi use the command:
-
-_sudo nmtui_
-
-to configure WiFi and IP settings with the appropriate static address. Some versions of Raspberry Pi OS need options disabled to maintain a reliable connection. If you observe frequent data drops try:
-
-Create a file called /etc/modprobe.d/brcmfmac.conf
-
- with the following content:
-
-_options brcmfmac roamoff=1 feature_disable=0x82000_
-
-Reference: https://forums.raspberrypi.com/viewtopic.php?t=372254
-
-### 1.11.2  SSHD Configuration
-
-The OpenSSH daemon has added QoS metric requirements that the Pi Zero W Wifi can't meet. This results in dropped SSH/SFTP sessions, often before login completes. Edit 
-
-_/etc/ssh/sshd_config_
-
-and add the line
-
-_IPQoS 0x00_
-
-Refernce: https://raspberrypi.stackexchange.com/questions/143142/has-anyone-solved-raspberry-pi-zero-w-ssh-client-loop-send-disconnect-broken
-
 ## 1.12 Read Only Card Configuration
 
 While we have examples of systems running cards with local logging to SD for years, Flash wearout is a well-documented issue. The best option seems to be to log to local RAMDISK and network logger.
@@ -188,5 +190,3 @@ While we have examples of systems running cards with local logging to SD for yea
 Add instructions here.
 
 [1](#sdfootnote1anc) While cards smaller than 8 GiB may fit an image, smaller cards don't really leave enough working room for flash wear leveling.
-
-
