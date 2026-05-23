@@ -50,6 +50,8 @@ Run:
 
 ## 1.5 Make raspi-config changes:
 
+*Note that later versions of raspi-config renumber options.*
+
 ### 1.5.1 System Options
 
 - 1 System|S4 Hostname Interlock-Test-1
@@ -76,7 +78,7 @@ Run:
 - A4 Network Interface Names (Disable predictable network I/F Names)
 - AA Network Config|dhcpcd
 
-NOTE: If this image is intended to be copied to other cards, it's best to hold off on the following config until the final card it used.
+**NOTE: If this image is intended to be copied to other cards, it's best to hold off on the following config until the final card it used.**
 
 The A1 Expand Filesystem option expands the Pi OS image to fill the entire card. This will restrict the use of the image to cards larger than the image
 
@@ -91,6 +93,10 @@ Avahi generates mDNS traffic that adds no value in this application. To remove i
 sudo apt-get purge avahi-daemon
 
 ## 1.7 Install Python Libs
+
+Before doing anything else update the OS
+
+_sudo apt-get update_
 
 install pip
 
