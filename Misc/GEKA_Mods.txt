@@ -1,0 +1,2 @@
+The Interlock senses valve operation instead of current.  Two OPTO22 G4IAC5 opto interfaces sense the 110V coil drive and provide the Pi controller with 3.3V logic levels.  
+The 5V IAC5 output is converted to 3.3V out with a 6.8K resistor fom each output to ground. The two outputs are diode-or'd to drive GPIO27 (same as standard current sense.) No software modificaton is required.
